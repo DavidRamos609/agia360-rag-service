@@ -1,0 +1,6 @@
+{
+    "claude-code.environmentVariables": {
+        "ANTHROPIC_API_KEY": "sk-ant-api03-tu-clave-aqui..."
+    },
+    "claude-code.selectedModel": "claude-3-7-sonnet-latest"
+}

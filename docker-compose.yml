@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  rag-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: rag-service
+    restart: unless-stopped
+    ports:
+      - "${PORT:-8000}:${PORT:-8000}"
+    volumes:
+      - chromadb_data:/app/chroma_data
+    env_file:
+      - .env
+    environment:
+      - CHROMA_PATH=/app/chroma_data
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - PORT=${PORT:-8000}
+
+volumes:
+  chromadb_data:
+    name: rag_service_chromadb_data
